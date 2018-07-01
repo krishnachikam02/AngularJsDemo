@@ -1,0 +1,28 @@
+<h3>Role Master List</h3>
+<table class="table">
+    <thead>
+        <tr>
+            
+            <th>RoleName</th>
+            <th>RoleDes</th>
+             <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="rlist in roleList ">
+             <td>{{ rlist.RoleName }}</td>
+             <td>{{ rlist.RoleDescription }}</td>
+             <td><a href="" ng-click="edit(rlist);">Edit</a> | <a href="" ng-click="delete(rlist);">Delete</a>
+             </td>            
+        </tr>
+    </tbody>
+</table>
+<form>
+    <h3>Role Master</h3>
+    <input type="text" placeholder="RoleName" ng-model="roleModel.RoleName">
+    <br><br>
+     <input type="text" placeholder="RoleDescription" ng-model="roleModel.RoleDescription">
+      <br>
+    <br>
+    <button type="text" value ="submit" ng-click="update(roleModel);" ng-if="isEdit=='Edit'">update</button>
+</form>

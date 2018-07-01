@@ -1,0 +1,39 @@
+<span ng-bind="DisplayMessage"></span>
+<br><br>
+Filter:<input type="text" ng-model="UserMasterFilter.Fullname">
+<br><br>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col" ng-click="doSort(Fullname)">Full Name</th>
+            <th scope="col" ng-click="doSort(EmailId)">EmailId</th>
+            <th>Action</th>
+          
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="ulist in userList | filter:UserMasterFilter">
+             <td>{{ulist.Fullname}}</td>
+             <td>{{ulist.EmailId}}</td>
+               <td><a href="" ng-click="edit(ulist);">Edit</a> | <a href="" ng-click="delete(ulist);">Delete</a>
+             </td>
+              
+            
+        </tr>
+    </tbody>
+</table>
+
+<form>
+    <h3>User Master</h3>
+    <input type="text" placeholder="Full Name" ng-model="UserModel.Fullname">
+    <br><br>
+     <input type="text" placeholder="EmailId" ng-model="UserModel.EmailId">
+       <br><br>
+     
+   
+    <button type="text" value ="submit" ng-click="Click(Fullname,EmailId);" ng-if="isEdit=='Save'">Submit</button>
+    <br>
+    <br>
+    <button type="text" value ="submit" ng-click="update();" ng-if="isEdit=='Edit'">update</button>
+</form>
